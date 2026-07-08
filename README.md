@@ -167,3 +167,54 @@ Custom Linux Host Setup
 * [AutoRuns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns)
 
 ---
+
+## Fedora TPM2 Enroll
+[https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/](https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/)
+```bash
+$ lsblk
+NAME                                          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+zram0                                         251:0    0     8G  0 disk  [SWAP]
+nvme0n1                                       259:0    0 238.5G  0 disk  
+├─nvme0n1p1                                   259:1    0   600M  0 part  /boot/efi
+├─nvme0n1p2                                   259:2    0     2G  0 part  /boot
+└─nvme0n1p3                                   259:3    0 235.9G  0 part  
+  └─luks-0521d3bd-bebc-4004-ae8a-10159c08c8b5 252:0    0 235.9G  0 crypt /home
+                                                                         /
+
+$ echo "add_dracutmodules+=\" tpm2-tss \"" | sudo tee /etc/dracut.conf.d/tpm2.conf
+add_dracutmodules+=" tpm2-tss "
+add_dracutmodules+=" tpm2-tss "
+🔐 Please enter current passphrase for disk /dev/nvme0n1p3: ••••••                  
+New TPM2 token enrolled as key slot 2.
+Wiped slot 1.
+
+$ sudo cat /etc/crypttab 
+luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach
+
+$ sudo nano /etc/crypttab
+Write: UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach,tpm2-device=auto
+
+$ sudo dracut -f
+```
+
+### Platform Configuration Register Table (Simple)
+| PCR No.   | Affecting Components     | Potential Changes                  |
+|:----------|:-------------------------|:-----------------------------------|
+| **0**     | UEFI/BIOS firmware       | Framework BIOS update              |
+| **1**     | Platform configuration   | BIOS settings, Platform components |
+| **2**     | Option ROM / EFI driver  | PCIe/GPU/NIC/storage firmware      |
+| **3**     | Option ROM configuration | Device configuration and topology  |
+| **4**     | Boot executable          | shim/GRUB/EFI loader update        |
+| **5**     | Boot configuration       | BootOrder, GPT, boot state/config  |
+| **7**     | Secure Boot policy       | Secure Boot, PK/KEK/db/dbx         |
+| **9**     | Kernel/initrd files      | Fedora kernel update, `dracut -f`  |
+
+
+* **Recommended PCR**: 7
+* **Possible Strict Policy**: 0+7
+
+### References
+* [https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/](https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/)
+* [https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications](https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications)
+* [https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/](https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/)
+* [https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/](https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/)
