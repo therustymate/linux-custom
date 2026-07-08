@@ -192,7 +192,7 @@ $ sudo cat /etc/crypttab
 luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach
 
 $ sudo nano /etc/crypttab
-Write: UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach,tpm2-device=auto
+Write: luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach,tpm2-device=auto
 
 $ sudo dracut -f
 ```
