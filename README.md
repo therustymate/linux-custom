@@ -189,10 +189,11 @@ $ sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "0+7"
 New TPM2 token enrolled as key slot 1.
 
 $ sudo cat /etc/crypttab 
-luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach
+luks-... UUID=... none discard,x-initrd.attach
 
 $ sudo nano /etc/crypttab
-Write: luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach,tpm2-device=auto
+Write:
+luks-... UUID=... none discard,x-initrd.attach,tpm2-device=auto
 
 $ sudo dracut -f
 ```
@@ -208,7 +209,6 @@ $ sudo dracut -f
 | **5**     | Boot configuration       | BootOrder, GPT, boot state/config  |
 | **7**     | Secure Boot policy       | Secure Boot, PK/KEK/db/dbx         |
 | **9**     | Kernel/initrd files      | Fedora kernel update, `dracut -f`  |
-
 
 * **Recommended PCR**: 7
 * **Possible Strict Policy**: 0+7
