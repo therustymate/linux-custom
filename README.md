@@ -2,6 +2,7 @@
 Custom Linux Host Setup
 
 ## Hardware Custom
+* **Base**: Framework Laptop 13 Pro
 * **CPU**: Ryzen<sup>TM</sup> AI 7 350
     * Up to 5.0GHz
     * 8-core/16-thread
