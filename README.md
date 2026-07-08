@@ -150,7 +150,6 @@ Custom Linux Host Setup
 * [Detect It Easy](https://github.com/horsicq/DIE-engine/releases)
 * [Burp Suite CE](https://portswigger.net/burp/communitydownload)
 * [OWASP ZAP](https://www.zaproxy.org/download/)
-* [Caido](https://www.caido.io/download/)
 * [Wireshark](https://www.wireshark.org/#download)
 * [Chrome](https://support.google.com/chrome/a/answer/9025903?hl=en)
 * [Opera GX](https://www.opera.com/gx/linux)
@@ -218,3 +217,57 @@ $ sudo dracut -f
 * [https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications](https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications)
 * [https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/](https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/)
 * [https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/](https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/)
+
+## Ghidra Installation
+1. Download Ghidra from [Ghidra Download URL](https://github.com/NationalSecurityAgency/ghidra/releases)
+2. Unzip the archive at `/home/rusty/ghidra`
+3. Create `ghidra.desktop` file at `~/.local/share/applications`:
+```bash
+[Desktop Entry]
+Type=Application
+Name=Ghidra
+Comment=Software reverse engineering framework
+Exec=/home/rusty/ghidra/ghidraRun
+Icon=/home/rusty/ghidra/support/ghidra.ico
+Terminal=false
+Categories=Development;Security;ReverseEngineering;
+StartupNotify=true
+```
+4. Run: `update-desktop-database ~/.local/share/applications`
+
+## Binary Ninja Installation
+1. Download Binary Ninja from [Binary Ninja Download URL](https://binary.ninja/free/)
+2. Unzip the archive at `/home/rusty/binaryninja`
+3. Move `./rsrc/binaryninja.desktop/icon.png` to `/home/rusty/binaryninja`
+4. Create `binaryninja.desktop` file at `~/.local/share/applications`:
+```bash
+[Desktop Entry]
+Type=Application
+Name=Binary Ninja
+Comment=Reverse engineering platform
+Exec=/home/rusty/binaryninja/binaryninja
+Icon=/home/rusty/binaryninja/icon.png
+Terminal=false
+Categories=Development;Security;ReverseEngineering;
+StartupNotify=true
+```
+5. Run: `update-desktop-database ~/.local/share/applications`
+
+## Detect It Easy Installation
+1. Download Detect It Easy `.AppImage` file from [Detect It Easy Download URL](https://github.com/horsicq/DIE-engine/releases)
+2. Move `.AppImage` file to `/home/rusty/DIE`
+3. Rename `.AppImage` file to `detect_it_easy.AppImage`
+4. Move `./rsrc/detect_it_easy.desktop/icon.png` to `/home/rusty/detect_it_easy`
+5. Create `detect_it_easy.desktop` file at `~/.local/share/applications`:
+```bash
+[Desktop Entry]
+Type=Application
+Name=Detect It Easy
+Comment=Reverse engineering tool
+Exec=/home/rusty/DIE/[ REPLACE WITH DIE FILE NAME ]
+Icon=/home/rusty/DIE/icon.png
+Terminal=false
+Categories=Development;Security;ReverseEngineering;
+StartupNotify=true
+```
+6. Run: `update-desktop-database ~/.local/share/applications`
