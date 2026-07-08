@@ -183,6 +183,8 @@ nvme0n1
 $ echo "add_dracutmodules+=\" tpm2-tss \"" | sudo tee /etc/dracut.conf.d/tpm2.conf
 add_dracutmodules+=" tpm2-tss "
 add_dracutmodules+=" tpm2-tss "
+
+$ sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "0+7" /dev/nvme0n1p3
 🔐 Please enter current passphrase for disk /dev/nvme0n1p3: ••••••                  
 New TPM2 token enrolled as key slot 1.
 
