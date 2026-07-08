@@ -184,8 +184,7 @@ $ echo "add_dracutmodules+=\" tpm2-tss \"" | sudo tee /etc/dracut.conf.d/tpm2.co
 add_dracutmodules+=" tpm2-tss "
 add_dracutmodules+=" tpm2-tss "
 🔐 Please enter current passphrase for disk /dev/nvme0n1p3: ••••••                  
-New TPM2 token enrolled as key slot 2.
-Wiped slot 1.
+New TPM2 token enrolled as key slot 1.
 
 $ sudo cat /etc/crypttab 
 luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx none discard,x-initrd.attach
