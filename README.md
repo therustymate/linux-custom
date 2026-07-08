@@ -168,18 +168,17 @@ Custom Linux Host Setup
 
 ---
 
-## Fedora TPM2 Enroll
+## Fedora TPM2 Setup
 [https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/](https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/)
 ```bash
-$ lsblk
-NAME                                          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-zram0                                         251:0    0     8G  0 disk  [SWAP]
-nvme0n1                                       259:0    0 238.5G  0 disk  
-├─nvme0n1p1                                   259:1    0   600M  0 part  /boot/efi
-├─nvme0n1p2                                   259:2    0     2G  0 part  /boot
-└─nvme0n1p3                                   259:3    0 235.9G  0 part  
-  └─luks-0521d3bd-bebc-4004-ae8a-10159c08c8b5 252:0    0 235.9G  0 crypt /home
-                                                                         /
+$ lsblk -o NAME
+NAME
+zram0
+nvme0n1
+├─nvme0n1p1
+├─nvme0n1p2
+└─nvme0n1p3                                     <- TARGET
+  └─luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx   <- LUKS
 
 $ echo "add_dracutmodules+=\" tpm2-tss \"" | sudo tee /etc/dracut.conf.d/tpm2.conf
 add_dracutmodules+=" tpm2-tss "
