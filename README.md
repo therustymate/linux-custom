@@ -11,7 +11,7 @@ Custom Linux Host Setup
 * **RAM**: DDR5-5600 - 32GB (2 x 16GB)
 * **Storage**: SANDISK SN7100 PCIe(R) 4.0 M.2 2280 - 1TB
 * **Keyboard**: US English - Graphite
-* **Eexpansion Cards**:
+* **Expansion Cards**:
     * USB-C
         * Aluminum - Graphite(x2)
     * USB-A
