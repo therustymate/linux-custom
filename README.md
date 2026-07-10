@@ -216,7 +216,6 @@ $ sudo dracut -f
 * [https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/](https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/)
 * [https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications](https://help.zededa.com/hc/en-us/articles/43295940828827-TPM-PCR-Index-Security-Implications)
 * [https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/](https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/)
-* [https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/](https://www.reddit.com/r/Fedora/comments/1nearrn/how_to_automatically_decrypt_luks2_disk_using_tpm2/)
 
 ## Ghidra Installation
 1. Download Ghidra from [Ghidra Download URL](https://github.com/NationalSecurityAgency/ghidra/releases)
