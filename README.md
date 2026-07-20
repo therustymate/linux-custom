@@ -25,7 +25,7 @@ Custom Linux Host Setup
 
 ## OS Custom
 * **Kernel**: Linux
-* **Distribution**: [Fedora Workstation](https://fedoraproject.org/workstation/)
+* **Distribution**: [Fedora KDE Plasma Desktop](https://fedoraproject.org/kde/)
 * **Boot**
     * **Secure Boot**: Enabled
     * **Boot Order**: 
@@ -46,17 +46,7 @@ Custom Linux Host Setup
         * English
         * Korean (Hangul)
     * **User Profile Picture**: [therustymate](https://avatars.githubusercontent.com/u/216290241?v=4)
-    * **Desktop Environment**: GNOME
-        * **Extensions**:
-            * [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
-            * [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
-            * [Desktop Icon NG (DING)](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/)
-            * [TopHat](https://extensions.gnome.org/extension/5219/tophat/)
-    * **Terminal**: Tilix
-        * **Theme**: Linux
-        * **Terminal Size**:
-            * **Columns**: 165
-            * **Rows**: 35
+    * **Desktop Environment**: KDE Plasma
 
 ## Software Custom
 * **Reverse Engineering**
@@ -139,10 +129,6 @@ Custom Linux Host Setup
 ## Linux - Web Download List
 * [Fedora Workstation](https://fedoraproject.org/workstation/)
 * [Rufus Portable](https://rufus.ie/en/#download)
-* [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
-* [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
-* [Desktop Icon NG (DING)](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/)
-* [TopHat](https://extensions.gnome.org/extension/5219/tophat/)
 * [Ghidra](https://github.com/NationalSecurityAgency/ghidra/releases)
 * [Binary Ninja](https://binary.ninja/free/)
 * [IDA Free](https://my.hex-rays.com/dashboard/download-center/installers/release)
